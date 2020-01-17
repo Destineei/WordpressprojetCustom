@@ -8,17 +8,9 @@ Template Name: Propositions
 
 <?php get_header(); ?>
 
-<main>
+<main class="propositions">
+    
 
-    <section class="propositions">
-        <div class="tags">
-            <a class="ecologie" href="">écologie</a>
-            <a class="transports" href="">transports</a>
-            <a class="securite" href="">sécurité</a>
-            <!-- <a href="">logement</a>
-            <a href="">services publics</a>
-            <a href="">gestions des finances</a> -->
-        </div>
 <?php 
     $terms = get_terms( 'genre', 'orderby=count&hide_empty=0' );
     if ( ! empty( $terms ) && ! is_wp_error( $terms ) ){
@@ -41,8 +33,42 @@ Template Name: Propositions
     echo '</ul>';
    }
 ?>
+<?php
+$the_query = new WP_Query( array( 'post_type'=>'propositions') );
 
-        <section class="news">
+// The Loop
+if ( $the_query->have_posts() ) {
+    while ( $the_query->have_posts()){
+        $the_query->the_post();
+?>
+
+<div class="tags">
+<?php
+
+    $terms = get_the_terms(get_the_id(), 'thematique');
+    $count = count( $terms );
+    if ( $count > 0 ) {
+        foreach ( $terms as $term ) {
+            $cat = $term->slug;
+
+            ?>
+            <a href="#"> <?php echo $cat; ?> </a>
+            <?php
+        }
+
+    }
+    ?>
+</div>
+ <?php   }} ?>
+
+            
+
+
+
+
+
+            
+<!-- faire le menu tags a cliquer  -->
     <?php
 // The Query
 $the_query = new WP_Query( array( 'post_type'=>'propositions') );
@@ -54,7 +80,7 @@ if ( $the_query->have_posts() ) {
 ?>
 
 <?php
-
+// recuperation des thématiques, ajout dans un 
 $catList = array();
 // $catall = "";
     // a utiliser dans la boucle WordPress ou ds la WP_QUERY
@@ -98,7 +124,10 @@ $catList = array();
 };
 
 ?>
-        </section>
-</section>
+
+
+</main>
+<script>let identificateur = <?php echo json_encode($catList); ?>;</script>
+
 
 <?php get_footer(); ?>
