@@ -51,7 +51,7 @@ Template Name: Home
                 <div>
                     <h3 class="news-title"> <?php the_title(); ?> </h3>
                     <p class="news-content"> <?php the_content(); ?> </p>
-                    <a class="learn-more" href="<?php the_permalink(); ?>"> Lire Plus </a>
+                    <a class="learn-more" href="<?php the_permalink(); ?>"> Lire Pluse </a>
                 </div>
             </article>
         </section>
