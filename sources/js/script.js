@@ -1,18 +1,23 @@
-let categories = document.querySelectorAll('.tags a')
-let ecologie = document.querySelectorAll('.ecologie')
-let transports = document.querySelectorAll('.transports')
-let securite = document.querySelectorAll('.securite')
+let categories = document.querySelectorAll('.tags>a')
 
-// let id = document.querySelector('<php? echo $mycat2 ;?>')
+// function fdex(){
+//     if
 
+// }
 
-for ( var i = 0; i < categories.length - 1; i++){
-    categories[i];addEventListener('click', function(event){
-        console.log(identificateur)
+for ( var i = 0; i < categories.length; i++){
+    let theCategory = categories[i]
+    console.log(theCategory)
+    theCategory.addEventListener('click', function(event){
+        console.log(theCategory.classList)
+        let 
     })
 }
 
 
+
+
+// li catList afficher en html = cePutainDeTruc
 
 
 

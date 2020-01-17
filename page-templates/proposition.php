@@ -33,42 +33,33 @@ Template Name: Propositions
     echo '</ul>';
    }
 ?>
-<?php
-$the_query = new WP_Query( array( 'post_type'=>'propositions') );
 
-// The Loop
-if ( $the_query->have_posts() ) {
-    while ( $the_query->have_posts()){
-        $the_query->the_post();
-?>
 
+<!-- gestion dynamique du display des thématiques en un menu -->
 <div class="tags">
-<?php
-
-    $terms = get_the_terms(get_the_id(), 'thematique');
-    $count = count( $terms );
-    if ( $count > 0 ) {
-        foreach ( $terms as $term ) {
-            $cat = $term->slug;
-
+<?php 
+$args=array(
+  'public'   => true,
+  '_builtin' => false
+);
+$output = 'names'; // or objects
+$operator = 'and';
+$taxonomies=get_taxonomies($args,$output,$operator); 
+if  ($taxonomies) {
+  foreach ($taxonomies  as $taxonomy ) {
+    $terms = get_terms([
+        'taxonomy' => $taxonomy,
+        'hide_empty' => false,
+    ]);
+        foreach ( $terms as $term) {
+?>
+        <a href="#" class="<?php echo $term->slug; ?>" > <?php echo $term->name; ?> </a>
+       <?php 
+                }
+              }
+            }  
             ?>
-            <a href="#"> <?php echo $cat; ?> </a>
-            <?php
-        }
-
-    }
-    ?>
 </div>
- <?php   }} ?>
-
-            
-
-
-
-
-
-            
-<!-- faire le menu tags a cliquer  -->
     <?php
 // The Query
 $the_query = new WP_Query( array( 'post_type'=>'propositions') );
@@ -82,30 +73,24 @@ if ( $the_query->have_posts() ) {
 <?php
 // recuperation des thématiques, ajout dans un 
 $catList = array();
-// $catall = "";
     // a utiliser dans la boucle WordPress ou ds la WP_QUERY
     $terms = get_the_terms(get_the_id(), 'thematique');
     $count = count( $terms );
     if ( $count > 0 ) {
         foreach ( $terms as $term ) {
-            echo '<li>' . $term->slug . '</li>';
             $cat = $term->slug;
-            // print_r($cat);
-            
             array_push($catList,$cat);
-            // $catall = $catList[0] . $catList[1];
             
         }
-        print_r($catList);
-
         // print_r($catList);
-        // print_r($cat);
-        // print_r($catall);
 
     }
     ?>
 
             <article class="news-article <?php foreach($catList as $cat){ echo $cat . ' '; } ?>" >
+
+            <?php foreach($catList as $cat) echo '<li class="cePutainDeTruc">' . $cat . '</li>'; ?>
+
                 <img class="news-thumbnail" src="<?php echo IMAGES_URL.'/sources/images/placeholder.png'; ?>" alt="image de l'actualité">
                 <div>
                     <h3 class="news-title"> <?php the_title(); ?> </h3>
@@ -113,6 +98,17 @@ $catList = array();
                     <a class="learn-more" href="<?php the_permalink();?>"> Lire Plus </a>
                 </div>
             </article>
+
+            <!-- <script>let identificateur = []; 
+                        identificateur.push(<//?php foreach($catList as $cat){ echo $cat;} ?> )
+            
+            
+            
+            
+            
+            identificateur = <//?php echo json_encode($catList); ?> ;</script> -->
+
+
 
 <?php
         }
@@ -127,7 +123,7 @@ $catList = array();
 
 
 </main>
-<script>let identificateur = <?php echo json_encode($catList); ?>;</script>
+
 
 
 <?php get_footer(); ?>
