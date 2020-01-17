@@ -56,7 +56,7 @@ if ( $the_query->have_posts() ) {
 <?php
 
 $catList = array();
-$catall = "";
+// $catall = "";
     // a utiliser dans la boucle WordPress ou ds la WP_QUERY
     $terms = get_the_terms(get_the_id(), 'thematique');
     $count = count( $terms );
@@ -67,10 +67,10 @@ $catall = "";
             // print_r($cat);
             
             array_push($catList,$cat);
-            $catall = $catList[0] . $catList[1];
+            // $catall = $catList[0] . $catList[1];
             
         }
-        print_r($catall);
+        print_r($catList);
 
         // print_r($catList);
         // print_r($cat);
@@ -79,7 +79,7 @@ $catall = "";
     }
     ?>
 
-            <article class="news-article <?php echo $cat; ?>" >
+            <article class="news-article <?php foreach($catList as $cat){ echo $cat . ' '; } ?>" >
                 <img class="news-thumbnail" src="<?php echo IMAGES_URL.'/sources/images/placeholder.png'; ?>" alt="image de l'actualité">
                 <div>
                     <h3 class="news-title"> <?php the_title(); ?> </h3>
