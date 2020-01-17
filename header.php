@@ -15,6 +15,7 @@
     </head>
     <body <?php body_class(); ?>>
         <header id="header">
+        <nav>
             <?php
             $args=array(
                 'theme_location' => 'header', // nom du slug
@@ -25,20 +26,11 @@
             );
             wp_nav_menu($args);
             ?>
-            <div class="hero">
-                <h1>Adrien Demaegdt, <br> une nouvelle vision de Paris</h1>
-            </div>
-            <nav>
-                <div class="logo">Adrien Demaegdt</div>
-                <ul>
-                    <li><a href="#">candidat</a></li>
-                    <li><a href="#">équipe</a></li>
-                    <li><a href="#">propositions</a></li>
-                    <li><a href="#">actualités</a></li>
-                    <li><a class="join" href="#">Nous rejoindre</a></li>
-                </ul>
-            </nav>
-            <div class="hero">
+        </nav>
+        <?php 
+        global $post;
+        ?>
+            <div class="hero" style="background-image:url('<?php echo get_the_post_thumbnail_url($post->ID,'full'); ?>')">
                 <h1>Adrien Demaegdt, <br> une nouvelle vision de Paris</h1>
             </div>
         </header>

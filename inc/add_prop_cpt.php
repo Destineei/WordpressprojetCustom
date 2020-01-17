@@ -35,7 +35,7 @@ function create_prop_cpt(){
         'rewrite'             => array( 'slug' => $post_type )
     );
     register_post_type( 'propositions', $args );
-    $taxonomy = "cat";
+    $taxonomy = "thematique";
     $object_type='propositions';
     $args = array(
           'label' => 'Catégorie de proposition',

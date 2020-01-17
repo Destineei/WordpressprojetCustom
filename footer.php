@@ -8,7 +8,7 @@
                 <ul>Contact
                     <li>11 rue du Sapin, 75004 Paris</li>
                     <li>contact@adriendemaegdt.paris</li>
-                    <li><a> wwww.adriendemaegdt.paris</a></li>
+                    <li>wwww.adriendemaegdt.paris</li>
                 </ul>
             </li>
             <li>

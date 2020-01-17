@@ -26,7 +26,7 @@ if ( $the_query->have_posts() ) {
 
             <article class="team-member">
             <div class="team-member-content">
-                <img class="team-member-face" <?php echo the_post_thumbnail('single_thumbnail'); ?> >
+                <?php the_post_thumbnail('single_thumbnail',array('class' => 'team-member-face')); ?> 
                 <h2 class="team-member-name"><?php the_title(); ?></h2>
                 <p class="team-member-info"><?php the_content(); ?></p>
             </div>
