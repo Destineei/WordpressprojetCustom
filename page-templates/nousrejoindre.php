@@ -6,7 +6,7 @@ Template Name: Nous rejoindre
 
 <?php get_header(); ?>
 
-<main>
+<main class="joinus">
     <?php the_content(); ?>
 </main>
 

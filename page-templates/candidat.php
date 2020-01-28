@@ -6,7 +6,9 @@ Template Name: Candidat
 <?php get_header(); ?>
 
 <main role="main" class="probootstrap-main js-probootstrap-main">
-
+    <div class="hero" style="background-image:url('<?php echo get_the_post_thumbnail_url($post->ID,'full'); ?>')">
+        <h1>Adrien Demaegdt, <br> une nouvelle vision de Paris</h1>
+    </div>
       <!-- <h2>Un scientifique ouvert et passioné</h2>
           <p>
               Jeune étudiant passionné de Mathématiques, il arrive à Paris en 1990,

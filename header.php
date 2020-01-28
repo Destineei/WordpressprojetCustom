@@ -30,7 +30,4 @@
         <?php 
         global $post;
         ?>
-            <div class="hero" style="background-image:url('<?php echo get_the_post_thumbnail_url($post->ID,'full'); ?>')">
-                <h1>Adrien Demaegdt, <br> une nouvelle vision de Paris</h1>
-            </div>
         </header>

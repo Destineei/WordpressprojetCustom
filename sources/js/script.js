@@ -1,18 +1,62 @@
-let categories = document.querySelectorAll('.tags a')
-let ecologie = document.querySelectorAll('.ecologie')
-let transports = document.querySelectorAll('.transports')
-let securite = document.querySelectorAll('.securite')
-
-// let id = document.querySelector('<php? echo $mycat2 ;?>')
+let categories = document.querySelectorAll('.tags>a')
+let articles = document.querySelectorAll('article.news-article')
 
 
-for ( var i = 0; i < categories.length - 1; i++){
-    categories[i];addEventListener('click', function(event){
-        console.log(identificateur)
-    })
+let articlesArray = Array.prototype.slice.call(document.querySelectorAll('article.news-article'));
+
+
+
+// for ( var i = 0; i < articlesArray.length ; i++){
+//     let article = articlesArray[i];
+//     console.log(article.classList)
+
+    
+for ( var i = 0; i < categories.length; i++){
+    let theCategory = categories[i]
+    theCategory.addEventListener('click', function(event){
+        
+        for ( var i = 0; i < articlesArray.length ; i++)
+        {
+            let article = articlesArray[i];
+            // console.log(article.classList)
+
+        if (article.classList.contains(theCategory.classList.toString())){
+            article.classList.add('display');
+        }
+        else {article.classList.remove('display');}
+    }
+})
 }
 
 
+
+        
+        
+    // }
+
+
+
+
+// function fdex(){
+//     if
+
+// }
+
+// for ( var i = 0; i < categories.length; i++){
+//     let theCategory = categories[i]
+//     console.log(theCategory)
+//     theCategory.addEventListener('click', function(event){
+//         console.log(theCategory)
+//         if article.classList.contains('theCategory'){
+//             console.log('yeah')
+//         }
+//     })
+// }
+
+
+
+
+// li catList afficher en html = cePutainDeTruc
 
 
 
