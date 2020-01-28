@@ -6,8 +6,10 @@ Template Name: Equipe
 
 <?php get_header(); ?>
 
-<main>
-    <section class="team">
+<main class="team">
+    <div class="hero" style="background-image:url('<?php echo get_the_post_thumbnail_url($post->ID,'full'); ?>')">
+        <h1>Adrien Demaegdt, <br> une nouvelle vision de Paris</h1>
+    </div>
 <?php
 $args = array( 'post_type' => 'equipe' );
 
@@ -42,7 +44,6 @@ if ( $the_query->have_posts() ) {
 }
 
 ?>
-    </section>
 </main>
 
 <?php get_footer()?>

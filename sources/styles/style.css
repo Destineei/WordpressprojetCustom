@@ -42,13 +42,13 @@ a{
   position: relative;
   top: -2px;
 }
-header .hero {
+.hero {
   background-position: center;
   width: 100%;
   height: 500px;
   margin-bottom: 80px;
 }
-header h1{
+h1{
   display: inline-block;
   position: relative;
   top: 250px;
@@ -146,9 +146,7 @@ main *, main * *{
   justify-content: space-around;
   margin-bottom: 40px;
 }
-.tags .ecologie{
-  display: ;
-}
+
 .propositions .tags a{
   padding: 10px;
   color: rgb(250, 250, 250);
@@ -163,8 +161,8 @@ main *, main * *{
   position: relative;
   top: -2px;
 }
-.proposition{
-  display: inline-block;
+.propositions article{
+  display: none;
   width: 40%;
   margin: auto 30px;
   margin-bottom: 20px;
@@ -173,22 +171,28 @@ main *, main * *{
   border-radius: 5px;
   padding: 20px;
 }
+/* Classe necessaires pour le js propositions */
+
+.propositions article.display
+{
+  display: inline-block;
+}
 .propositions div{
   margin-bottom: 0;
 }
-.proposition-thumbnail{
+article .proposition-thumbnail{
   width: 103px;
 }
-.proposition-content{
+article .proposition-content{
   text-align: justify;
   margin-bottom: 40px;
 }
-.proposition .proposition-title{
+article .proposition-title{
   font-size: 20px;
   color: rgb(225, 65, 65);
   font-weight: 700;
 }
-.proposition .learn-more{
+article .learn-more{
   text-align: center;
   color: rgb(250, 250, 250);
   background-color: rgb(65, 105, 225);
@@ -196,7 +200,7 @@ main *, main * *{
   border-radius: 5px;
   margin-bottom: 0;
 }
-.proposition .learn-more:hover{
+article .learn-more:hover{
   filter: brightness(1.2);
   position: relative;
   top: -2px;
@@ -251,9 +255,11 @@ main *, main * *{
 /*  */
 /* FOOTER */
 footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
   background-color: rgb(25, 25, 25);
   color: rgb(250, 250, 250);
-
 }
 footer nav{
   display: flex;

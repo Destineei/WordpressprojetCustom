@@ -8,17 +8,11 @@ Template Name: Propositions
 
 <?php get_header(); ?>
 
-<main>
+<main class="propositions">
+    <div class="hero" style="background-image:url('<?php echo get_the_post_thumbnail_url($post->ID,'full'); ?>')">
+        <h1>Adrien Demaegdt, <br> une nouvelle vision de Paris</h1>
+    </div>
 
-    <section class="propositions">
-        <div class="tags">
-            <a class="ecologie" href="">écologie</a>
-            <a class="transports" href="">transports</a>
-            <a class="securite" href="">sécurité</a>
-            <!-- <a href="">logement</a>
-            <a href="">services publics</a>
-            <a href="">gestions des finances</a> -->
-        </div>
 <?php 
     $terms = get_terms( 'genre', 'orderby=count&hide_empty=0' );
     if ( ! empty( $terms ) && ! is_wp_error( $terms ) ){
@@ -42,7 +36,32 @@ Template Name: Propositions
    }
 ?>
 
-        <section class="news">
+
+<!-- gestion dynamique du display des thématiques en un menu -->
+<div class="tags">
+<?php 
+$args=array(
+  'public'   => true,
+  '_builtin' => false
+);
+$output = 'names'; // or objects
+$operator = 'and';
+$taxonomies=get_taxonomies($args,$output,$operator); 
+if  ($taxonomies) {
+  foreach ($taxonomies  as $taxonomy ) {
+    $terms = get_terms([
+        'taxonomy' => $taxonomy,
+        'hide_empty' => false,
+    ]);
+        foreach ( $terms as $term) {
+?>
+        <a href="#" class="<?php echo $term->slug; ?>" > <?php echo $term->name; ?> </a>
+       <?php 
+                }
+              }
+            }  
+            ?>
+</div>
     <?php
 // The Query
 $the_query = new WP_Query( array( 'post_type'=>'propositions') );
@@ -54,39 +73,43 @@ if ( $the_query->have_posts() ) {
 ?>
 
 <?php
-
+// recuperation des thématiques, ajout dans un 
 $catList = array();
-// $catall = "";
     // a utiliser dans la boucle WordPress ou ds la WP_QUERY
     $terms = get_the_terms(get_the_id(), 'thematique');
     $count = count( $terms );
     if ( $count > 0 ) {
         foreach ( $terms as $term ) {
-            echo '<li>' . $term->slug . '</li>';
             $cat = $term->slug;
-            // print_r($cat);
-            
             array_push($catList,$cat);
-            // $catall = $catList[0] . $catList[1];
             
         }
-        print_r($catList);
-
         // print_r($catList);
-        // print_r($cat);
-        // print_r($catall);
 
     }
     ?>
 
             <article class="news-article <?php foreach($catList as $cat){ echo $cat . ' '; } ?>" >
+
+
                 <img class="news-thumbnail" src="<?php echo IMAGES_URL.'/sources/images/placeholder.png'; ?>" alt="image de l'actualité">
                 <div>
-                    <h3 class="news-title"> <?php the_title(); ?> </h3>
-                    <p class="news-content"> <?php the_content(); ?></p>
+                    <h3 class="proposition-title"> <?php the_title(); ?> </h3>
+                    <p class="proposition-content"> <?php the_content(); ?></p>
                     <a class="learn-more" href="<?php the_permalink();?>"> Lire Plus </a>
                 </div>
             </article>
+
+            <!-- <script>let identificateur = []; 
+                        identificateur.push(<//?php foreach($catList as $cat){ echo $cat;} ?> )
+            
+            
+            
+            
+            
+            identificateur = <//?php echo json_encode($catList); ?> ;</script> -->
+
+
 
 <?php
         }
@@ -98,7 +121,10 @@ $catList = array();
 };
 
 ?>
-        </section>
-</section>
+
+
+</main>
+
+
 
 <?php get_footer(); ?>
