@@ -15,14 +15,14 @@ Template Name: Home
             <img class="candidate-face" <?php echo the_post_thumbnail('single_thumbnail','860','575',true); ?> alt="imaAGEWORDPRESS">
 
             <div>
-                <h2><?php the_title(); ?></h2>
+                <h2>HERECandidat<?php the_title(); ?></h2>
                 <p> <?php the_content(); ?></p>
                 <a class="learn-more" href="<?php the_permalink(); ?>">En lire plus</a>
             </div>
         </section>
 
         <section class="propositions">
-            <h2><?php the_title(); ?></h2>
+            <h2>HEREPropositions<?php the_title(); ?></h2>
             <div class="tags">
                 <a href="<?php the_permalink(); ?>">
                     <div>
@@ -64,7 +64,7 @@ Template Name: Home
         </section>
 
         <section class="team">
-            <a href="<?php the_permalink(); ?>#"><h2><?php the_title(); ?></h2></a>
+            <a href="<?php the_permalink(); ?>#"><h2>HERETeam<?php the_title(); ?></h2></a>
             <p><?php the_content(); ?> </p>
             <article class="team-member">
                 <img class="team-member-face" src="<?php echo IMAGES_URL.'/sources/images';?>" alt="image">
@@ -93,7 +93,7 @@ Template Name: Home
         </section>
 
         <section class="news">
-            <a href="<?php the_permalink(); ?>"><h2><?php the_title(); ?>Les dernières nouvelles...</h2></a>
+            <a href="<?php the_permalink(); ?>"><h2>HERENews<?php the_title(); ?>Les dernières nouvelles...</h2></a>
             <article class="news-article">
                 <img class="news-thumbnail" src="<?php echo IMAGES_URL.'/sources/images';?>" alt="image">
                 <div>

@@ -1,54 +1,59 @@
 /* html{
       overflow-x: hidden;
 } */
-/* GLOBAL */
-body{
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                Global
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+body {
     font-family: 'Open Sans', sans-serif;
     background-color: rgb(230, 230, 230);
+    font-size: 15px;
 }
-a{
+a {
     text-decoration: none;
 }
-
-/*  */
-/* HEADER */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                Header
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        Header - Menu de WordPress
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 .menu-menu-du-header-container {
     height: 120px;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color: rgb(250, 250, 250);
     flex-wrap: wrap;
+    background-color: rgb(250, 250, 250);
 }
 .menu-menu-du-header-container li {
-    display: inline-block;
-}
-.menu-menu-du-header-container li{
     display: inline-block;
     margin: auto 30px;
     color: rgb(65, 105, 225);
     text-transform: uppercase;
     font-weight: 700;
 }
-.menu-menu-du-header-container #menu-item-136 a{
+.menu-menu-du-header-container #menu-item-136 a {
     padding: 15px;
-    border-radius: 5px;
+    border-radius: 25px;
     color: rgb(250, 250, 250);
     background-color: rgb(225, 65, 65);
     font-weight: 700;
 }
-.menu-menu-du-header-container a:hover{
+.menu-menu-du-header-container a:hover {
     filter: brightness(1.2);
-    position: relative;
-    top: -2px;
+    transform: scale(2);
 }
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                    Image Mise en Avant et Titre H1
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 .hero {
     background-position: center;
     width: 100%;
     height: 500px;
     margin-bottom: 80px;
 }
-h1{
+h1 {
     display: inline-block;
     position: relative;
     top: 250px;
@@ -59,12 +64,15 @@ h1{
     font-weight: 700;
     text-align: left;
 }
-/*  */
-/* MAIN */
-main *, main * *{
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                            Main
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+main *, main * * {
     margin-bottom: 20px;
 }
-    /* candidate */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                Candidat
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 .candidate-info{
     background-color: rgb(250, 250, 250);
     box-shadow: 0px 8px 20px rgb(0, 0, 0, 0.05);
@@ -97,15 +105,80 @@ main *, main * *{
 .candidate-info p{
     line-height: 150%;
 }
-    /*    */
-    /* team */
-.team{
-    display: inline-block;
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                Team
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.team {
+    /* display: inline-block; */
     /* text-align: center; */
+    /* margin-bottom: 60px; */
+}
+.team-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.team-member {
+    width: 40%;
+    margin-bottom: 100px;
+    background-color: rgb(250, 250, 250);
+    box-shadow: 0px 8px 20px rgb(0, 0, 0, 0.05);
+    border-radius: 5px;
+    padding: 10px 20px;
+}
+.team-member-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+}
+.team-member-name {
+    font-size: 30px;
+    color: rgb(225, 65, 65);
+    font-weight: 700;
+}
+.team-member-content p {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+.team-member .learn-more {
+    display: block;
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 15px;
+    color: rgb(250, 250, 250);
+    background-color: rgb(65, 105, 225);
+}
+.team-member .learn-more:hover{
+    filter: brightness(1.2);
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                            Proposition
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.propositions {
+    text-align: center;
     margin-bottom: 60px;
 }
-.team-member{
-    display: inline-block;
+.propositions .tags {
+    display: flex;
+    justify-content: space-around;
+    margin: 40px 0;
+}
+.propositions .tags a{
+    padding: 15px;
+    color: rgb(250, 250, 250);
+    background-color: rgb(225, 65, 65);
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: 700;
+    border-radius: 5px;
+}
+.propositions .tags a:hover{
+    filter: brightness(1.2);
+}
+.propositions article{
+    display: none;
     width: 40%;
     margin: auto 30px;
     margin-bottom: 20px;
@@ -114,99 +187,43 @@ main *, main * *{
     border-radius: 5px;
     padding: 20px;
 }
-.team-member-content{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Propositions - Classe necessaire pour le js
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.propositions article.display {
+    display: inline-block;
 }
-.team-member-name{
+.propositions div {
+    margin-bottom: 0;
+}
+.propositions article .proposition-thumbnail {
+    width: 103px;
+    /* height: 100px; */
+}
+.propositions article .proposition-title {
     font-size: 20px;
     color: rgb(225, 65, 65);
     font-weight: 700;
 }
-.team-member .learn-more{
+.propositions article p {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+.propositions article .learn-more {
+    display: block;
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 15px;
     color: rgb(250, 250, 250);
     background-color: rgb(65, 105, 225);
-    padding: 10px;
-    border-radius: 5px;
 }
-.team-member .learn-more:hover{
+.propositions article .learn-more:hover{
     filter: brightness(1.2);
-    position: relative;
-    top: -2px;
 }
-/*  */
-/* propositions */
-.propositions{
-  text-align: center;
-  margin-bottom: 60px;
-}
-.propositions .tags {
-  display: flex;
-  justify-content: space-around;
-  margin-bottom: 40px;
-}
-
-.propositions .tags a{
-  padding: 10px;
-  color: rgb(250, 250, 250);
-  background-color: rgb(225, 65, 65);
-  font: 14px;
-  text-transform: uppercase;
-  font-weight: 700;
-  border-radius: 5px;
-}
-.propositions .tags a:hover{
-  filter: brightness(1.2);
-  position: relative;
-  top: -2px;
-}
-.propositions article{
-  display: none;
-  width: 40%;
-  margin: auto 30px;
-  margin-bottom: 20px;
-  background-color: rgb(250, 250, 250);
-  box-shadow: 0px 8px 20px rgb(0, 0, 0, 0.05);
-  border-radius: 5px;
-  padding: 20px;
-}
-/* Classe necessaires pour le js propositions */
-
-.propositions article.display
-{
-  display: inline-block;
-}
-.propositions div{
-  margin-bottom: 0;
-}
-article .proposition-thumbnail{
-  width: 103px;
-}
-article .proposition-content{
-  text-align: justify;
-  margin-bottom: 40px;
-}
-article .proposition-title{
-  font-size: 20px;
-  color: rgb(225, 65, 65);
-  font-weight: 700;
-}
-article .learn-more{
-  text-align: center;
-  color: rgb(250, 250, 250);
-  background-color: rgb(65, 105, 225);
-  padding: 10px;
-  border-radius: 5px;
-  margin-bottom: 0;
-}
-article .learn-more:hover{
-  filter: brightness(1.2);
-  position: relative;
-  top: -2px;
-}
-    /*    */
-    /* actualites */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                        Actualites
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 .news .news-article{
     width: 75%;
     margin: auto;
@@ -238,22 +255,19 @@ article .learn-more:hover{
     margin-bottom: 20px;
 }
 .news .learn-more{
-    text-align: center;
+    display: block;
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 15px;
     color: rgb(250, 250, 250);
     background-color: rgb(65, 105, 225);
-    padding: 10px;
-    border-radius: 5px;
-    margin-bottom: 0;
-    position: relative;
-    left: 85.5%;
 }
 .news .learn-more:hover{
     filter: brightness(1.2);
-    position: relative;
-    top: -2px;
 }
-/*  */
-/* FOOTER */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                Footer
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 footer {
     background-color: rgb(25, 25, 25);
     color: rgb(250, 250, 250);

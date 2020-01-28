@@ -36,13 +36,12 @@ Template Name: Propositions
    }
 ?>
 
-
 <!-- gestion dynamique du display des thématiques en un menu -->
 <div class="tags">
 <?php 
 $args=array(
-  'public'   => true,
-  '_builtin' => false
+    'public'   => true,
+    '_builtin' => false
 );
 $output = 'names'; // or objects
 $operator = 'and';
@@ -90,10 +89,8 @@ $catList = array();
     ?>
 
             <article class="news-article <?php foreach($catList as $cat){ echo $cat . ' '; } ?>" >
-
-
-                <img class="news-thumbnail" src="<?php echo IMAGES_URL.'/sources/images/placeholder.png'; ?>" alt="image de l'actualité">
-                <div>
+                <div class="proposition">
+                    <?php the_post_thumbnail('single_thumbnail',array('class' => 'news-thumbanil')); ?>
                     <h3 class="proposition-title"> <?php the_title(); ?> </h3>
                     <p class="proposition-content"> <?php the_content(); ?></p>
                     <a class="learn-more" href="<?php the_permalink();?>"> Lire Plus </a>
