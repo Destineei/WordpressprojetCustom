@@ -3,9 +3,7 @@
 /*
 Template Name: Propositions
 */
-
 ?>
-
 <?php get_header(); ?>
 
 <main class="propositions">
@@ -13,30 +11,20 @@ Template Name: Propositions
         <h1>Adrien Demaegdt, <br> une nouvelle vision de Paris</h1>
     </div>
 
+    <h2><?php the_title(); ?></h2>
+
 <?php 
     $terms = get_terms( 'genre', 'orderby=count&hide_empty=0' );
     if ( ! empty( $terms ) && ! is_wp_error( $terms ) ){
     echo '<ul>';
     foreach ( $terms as $term ) {
-      /*if(isset($_GET['genre']) && genre!='')
-      {
-        if($term->slug == $_GET['genre'])
-        {
-          $current="en_cours";
-        }
-        else {
-          $current='';
-        }
-      }
-      echo '<li><a href="'.get_permalink(73).'?genre='.$term->slug.'" class="'.$current.'">' . $term->name . '</a></li>';
-      */
         echo '<li><a href="'.get_permalink(73).'?genre='.$term->slug.'" >' . $term->name . '</a></li>';
     }
     echo '</ul>';
    }
 ?>
 
-<!-- gestion dynamique du display des thématiques en un menu -->
+<!-- Gestion dynamique du display des thématiques en un menu -->
 <div class="tags">
 <?php 
 $args=array(
@@ -47,19 +35,19 @@ $output = 'names'; // or objects
 $operator = 'and';
 $taxonomies=get_taxonomies($args,$output,$operator); 
 if  ($taxonomies) {
-  foreach ($taxonomies  as $taxonomy ) {
-    $terms = get_terms([
-        'taxonomy' => $taxonomy,
-        'hide_empty' => false,
-    ]);
-        foreach ( $terms as $term) {
+    foreach ($taxonomies  as $taxonomy ) {
+        $terms = get_terms([
+            'taxonomy' => $taxonomy,
+            'hide_empty' => false,
+        ]);
+            foreach ( $terms as $term) {
 ?>
-        <a href="#" class="<?php echo $term->slug; ?>" > <?php echo $term->name; ?> </a>
+            <a href="#" class="<?php echo $term->slug; ?>" ><?php echo $term->name; ?></a>
        <?php 
-                }
-              }
-            }  
-            ?>
+            }
+    }
+}
+        ?>
 </div>
     <?php
 // The Query
@@ -70,9 +58,8 @@ if ( $the_query->have_posts() ) {
     while ( $the_query->have_posts()){
         $the_query->the_post();
 ?>
-
 <?php
-// recuperation des thématiques, ajout dans un 
+// recuperation des thématiques, ajout dans un
 $catList = array();
     // a utiliser dans la boucle WordPress ou ds la WP_QUERY
     $terms = get_the_terms(get_the_id(), 'thematique');
@@ -83,33 +70,18 @@ $catList = array();
             array_push($catList,$cat);
             
         }
-        // print_r($catList);
-
     }
-    ?>
-
-            <article class="news-article <?php foreach($catList as $cat){ echo $cat . ' '; } ?>" >
-                <div class="proposition">
-                    <?php the_post_thumbnail('single_thumbnail',array('class' => 'news-thumbanil')); ?>
-                    <h3 class="proposition-title"> <?php the_title(); ?> </h3>
-                    <p class="proposition-content"> <?php the_content(); ?></p>
-                    <a class="learn-more" href="<?php the_permalink();?>"> Lire Plus </a>
-                </div>
-            </article>
-
-            <!-- <script>let identificateur = []; 
-                        identificateur.push(<//?php foreach($catList as $cat){ echo $cat;} ?> )
-            
-            
-            
-            
-            
-            identificateur = <//?php echo json_encode($catList); ?> ;</script> -->
-
-
-
+?>
+        <article class="news-article <?php foreach($catList as $cat){ echo $cat . ' '; } ?>" >
+            <div class="proposition">
+                <?php the_post_thumbnail('single_thumbnail',array('class' => 'news-thumbanil')); ?>
+                <h3 class="proposition-title"> <?php the_title(); ?> </h3>
+                <p class="proposition-content"> <?php the_content(); ?></p>
+                <a class="learn-more" href="<?php the_permalink();?>"> Lire Plus </a>
+            </div>
+        </article>
 <?php
-        }
+    }
     /* Restore original Post Data */
     wp_reset_postdata();
     }
@@ -119,9 +91,6 @@ $catList = array();
 
 ?>
 
-
 </main>
-
-
 
 <?php get_footer(); ?>

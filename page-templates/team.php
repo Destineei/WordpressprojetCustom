@@ -10,6 +10,9 @@ Template Name: Equipe
     <div class="hero" style="background-image:url('<?php echo get_the_post_thumbnail_url($post->ID,'full'); ?>')">
         <h1>Adrien Demaegdt, <br> une nouvelle vision de Paris</h1>
     </div>
+
+    <h2><?php the_title(); ?></h2>
+
     <section class="team-container">
     <?php
         $args = array( 'post_type' => 'equipe' );
@@ -27,9 +30,8 @@ Template Name: Equipe
                 <article class="team-member">
                     <div class="team-member-content">
                         <?php the_post_thumbnail('single_thumbnail',array('class' => 'team-member-face')); ?>
-                        <h2 class="team-member-name"><?php the_title(); ?></h2>
+                        <h3 class="team-member-name"><?php the_title(); ?></h3>
                         <p><?php the_content(); ?></p>
-                        <a class="learn-more" href="<?php the_permalink();?>"> Lire Plus </a>
                     </div>
                 </article>
             

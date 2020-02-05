@@ -1,6 +1,3 @@
-/* html{
-      overflow-x: hidden;
-} */
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                                 Global
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
@@ -31,6 +28,7 @@ a {
     margin: auto 30px;
     color: rgb(65, 105, 225);
     text-transform: uppercase;
+    font-size: 20px;
     font-weight: 700;
 }
 .menu-menu-du-header-container #menu-item-136 a {
@@ -126,10 +124,11 @@ main *, main * * {
     border-radius: 5px;
     padding: 10px 20px;
 }
-/*.team-member-content {
+.team-member-content {
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
     margin: 20px;
 }
 .team-member-name {
@@ -225,39 +224,36 @@ Propositions - Classe necessaire pour le js
                         Actualites
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 .news .news-article{
-    /* width: 75%; */
+    display: flex;
+    width: 65%;
     margin: auto;
     margin-bottom: 20px;
     background-color: rgb(250, 250, 250);
     box-shadow: 0px 8px 20px rgb(0, 0, 0, 0.05);
     border-radius: 5px;
     padding: 20px;
-    /* position: relative; */
     height: max-content;
-    /* display: flex;
-    justify-content: space-around; */
 }
-.news-article div{
+.news-article div {
+    margin: 30px;
+    line-height: 1.3;
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: justify;
-    /* width: 65%; */
 }
-.news-article div .news-content{
-    margin-bottom: 40px;
+.news-article div .news-content {
+    /* margin-bottom: 40px; */
 }
-.news-thumbnail{
-    width: 103px;
-    height: 103px;
-}
-.news-article .news-title{
-    font-size: 18px;
+.news-article .news-title {
+    text-align: center;
+    font-size: 25px;
     color: rgb(225, 65, 65);
     font-weight: 700;
-    margin-bottom: 20px;
 }
-.news .learn-more{
+.news-article p {
+    font-size: 20px;
+}
+.news .learn-more {
     display: block;
     padding: 15px;
     border-radius: 5px;
@@ -301,4 +297,46 @@ footer nav a {
 }
 footer nav a:hover {
     filter: brightness(1.2);;
+}
+
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                Home
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.homepage .team-member {
+    width: 20%;
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                General
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+h2 {
+    display: block;
+    text-align: center;
+    margin: 70px;
+    font-size: 40px;
+    color: rgb(225, 65, 65);
+    font-weight: 700;
+}
+.homepage .propositions .logo-container {
+    font-size: 25px;
+    color: rgb(15, 15, 15);
+}
+.homepage .propositions .link-to-propositions {
+    display: block;
+    width: 250px;
+    margin: auto;
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 15px;
+    color: rgb(250, 250, 250);
+    background-color: rgb(65, 105, 225);
+}
+.homepage .propositions .link-to-propositions:hover{
+    filter: brightness(1.2);
+}
+.homepage .logo {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    margin: 80px;
 }
