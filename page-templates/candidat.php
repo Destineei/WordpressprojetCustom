@@ -17,7 +17,7 @@ Template Name: Candidat
                 the_post();
     ?>
                 <section class="candidate-info">
-                <h2><?php the_title(); ?></h2>
+                <h3><?php the_title(); ?></h3>
                 <p class="content">
                     <?php the_content(); ?>
                 </p>
