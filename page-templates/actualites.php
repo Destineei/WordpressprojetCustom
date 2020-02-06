@@ -17,12 +17,7 @@ Template Name: Actualités
 
             while ( $the_query->have_posts() ) {
                 $the_query->the_post();
-                // if(has_post_thumbnail())
-                // {
-                //   the_post_thumbnail( 'single_thumbnail');
-                // }
     ?>
-
                 <article class="news-article">
                     <?php the_post_thumbnail('single_thumbnail',array('class' => 'single_thumbnail')); ?>
                     <div>
@@ -40,9 +35,6 @@ Template Name: Actualités
         }
         ?>
 
-
 </main>
-
-
 
 <?php get_footer(); ?>
